@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import CardGroupHeading from './../CardGroupHeading/CardGroupHeading';
 import CardGroup from "./../Card/CardGroup";
-import CheckCardgrp from "../myBootstrap/CheckCardgrp";
 import { Credentials } from './../../Credentials';
 import axios from "axios";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 function TopChart(props) {
 
@@ -80,15 +80,20 @@ function TopChart(props) {
     }, [spotify.ClientId, spotify.ClientSecret]);
 
     return (
-        <div>
-            <CardGroupHeading
-                name="Top Charts"
-            />
-            {loading?<CardGroup playlist={tracks}/>:<h1>WAITING</h1>}
-            {/* <CardGroup playlist={tracks}/> */}
-            {/* {loading ? <CheckCardgrp playlist={tracks} /> : <h1>WAITING</h1>} */}
 
-        </div>
+        loading ?
+            <div className="jumbotron">
+                <CardGroupHeading
+                    name="Top Charts"
+                />
+                <CardGroup playlist={tracks} />
+            </div>
+            :
+            <div className="d-flex justify-content-center mt-5 mb-5">
+                <CircularProgress color="secondary" />
+            </div>
+
+
 
     );
 }
