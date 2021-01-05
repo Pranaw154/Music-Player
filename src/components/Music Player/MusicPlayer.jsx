@@ -1,13 +1,24 @@
 import React from 'react';
-import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import ReactJkMusicPlayer from 'react-jinke-music-player';
+import 'react-jinke-music-player/assets/index.css';
 
-
-function MusicPlayer() {
-    return(
-        <div>
-            
-        </div>
-    );
-}
+const MusicPlayer = props => {
+    const options = {
+        audioLists: [
+            {
+                name: props.title,
+                singer: props.artist,
+                cover: props.cover,
+                musicSrc: props.preview
+            }
+        ],
+        playIndex: 0,
+        mode: 'full',
+        closeText: 'Close',
+        showDestroy:true,
+        defaultPosition: { bottom: 100, right: 20 }
+    };
+    return <ReactJkMusicPlayer {...options} />;
+};
 
 export default MusicPlayer;

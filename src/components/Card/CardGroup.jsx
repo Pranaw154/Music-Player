@@ -12,18 +12,22 @@ const flickityOptions = {
     freeScroll: true,
     pageDots: false,
     imagesLoaded: true,
-    autoPlay: 10000,
+    autoPlay: 1500,
     contain: true,
+    arrowShape: { 
+        x0: 10,
+        x1: 60, y1: 50,
+        x2: 60, y2: 35,
+        x3: 25
+      },
     initialIndex: 2
 }
 
-function CardGroup(playlist) {
-
-
+function CardGroup(props) {
 
     var arr = []
-    for (let i = 0; i < playlist.playlist.length; i++) {
-        const element = playlist.playlist[i];
+    for (let i = 0; i < props.playlist.length; i++) {
+        const element = props.playlist[i];
         arr.push(element);
     }
     return (
@@ -40,7 +44,7 @@ function CardGroup(playlist) {
                     {arr.map((p, index) => {
                         return (
                             <div className="carousel-cell xyz" key={index}>
-                                <CardMusic trackName={p.trackName} artists={p.artists} imageUrl={p.imageUrl} trackPreviewUrl={p.spotifyLink} />
+                                <CardMusic trackName={p.trackName} artists={p.artists} imageUrl={p.imageUrl} trackPreviewUrl={p.trackPreviewUrl} playMusic={props.playMusic} />
                             </div>
                         );
                     })}

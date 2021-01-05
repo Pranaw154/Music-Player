@@ -4,12 +4,15 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import IconButton from '@material-ui/core/IconButton';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import { NavLink } from 'react-router-dom';
 
 
 var divStyle = {
     left: '0',
     bottom: '0',
     width: '100%',
+    position: 'absolute',
+
     backgroundColor: '#222',
     color: 'white',
     textAlign: 'center',
@@ -21,11 +24,11 @@ function Footer() {
             <div className="container p-4">
                 <div className="row">
                     <div className="col-lg-3 col-md-3 mb-4 mb-md-0 mr-auto">
-                        <a href="#" className="nav-link"><h5>About Us</h5></a>
+                        <NavLink to="/aboutus" className="nav-link"><h5>About Us</h5></NavLink>
                     </div>
 
                     <div className="col-lg-3 col-md-3 mb-4 mb-md-0 mr-auto">
-                        <a href="#" className="nav-link"><h5>Contact Us</h5></a>
+                        <NavLink to="/contactus" className="nav-link"><h5>Contact Us</h5></NavLink>
                     </div>
 
                     <div className="col-lg-6 col-md-6 mb-4 mb-md-0 mr-auto">

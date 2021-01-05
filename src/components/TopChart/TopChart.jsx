@@ -44,7 +44,7 @@ function TopChart(props) {
         // tracksResponse.data.items.length
     }
 
-    const buttonClicked = async (currToken) => {
+    const searchQuery = async (currToken) => {
 
         await axios(`https://api.spotify.com/v1/search?q=Global%20Top%2050&type=playlist`, {
             method: 'GET',
@@ -73,7 +73,7 @@ function TopChart(props) {
                 // console.log(tokenResponse)
                 let curr = tokenResponse.data.access_token
                 setToken(curr);
-                buttonClicked(curr);
+                searchQuery(curr);
             });
 
 
@@ -86,7 +86,7 @@ function TopChart(props) {
                 <CardGroupHeading
                     name="Top Charts"
                 />
-                <CardGroup playlist={tracks} />
+                <CardGroup playlist={tracks} playMusic={props.playMusic}/>
             </div>
             :
             <div className="d-flex justify-content-center mt-5 mb-5">
